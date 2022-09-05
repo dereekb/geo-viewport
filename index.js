@@ -13,11 +13,11 @@ module.exports.bounds = bounds;
 
 function fetchMerc(tileSize, allowAntiMeridian) {
     tileSize = tileSize || 256;
-    var antiMeridian = allowAntiMeridian || false;
+    var allowAntiMeridian = allowAntiMeridian || false;
 
-    var cacheKey = tileSize + String(antiMeridian);
+    var cacheKey = tileSize + String(allowAntiMeridian);
     if (!smCache[cacheKey]) {
-        smCache[cacheKey] = new SphericalMercator({ size: tileSize, antimeridian: antiMeridian });
+        smCache[cacheKey] = new SphericalMercator({ size: tileSize, antimeridian: allowAntiMeridian });
     }
 
     return smCache[cacheKey];
